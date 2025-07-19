@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atharva Kantode | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #008080, #000000);
+            color: #fff;
+            transition: all 0.5s ease;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header {
+            padding: 40px 20px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+
+        nav {
+            margin: 30px 0;
+        }
+
+        nav a {
+            margin: 0 12px;
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        section {
+            margin-bottom: 50px;
+            text-align: left;
+            animation: fadeInUp 1s ease-in;
+        }
+
+        h2 {
+            border-bottom: 2px solid #ffeb3b;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+
+        .skill {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .skill:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 235, 59, 0.2);
+        }
+
+        li, .project {
+            background: rgba(255, 255, 255, 0.15);
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+        .contact-item { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 8px; transition: transform 0.3s; }
+        .contact-item:hover { transform: scale(1.05); }
+        .contact-item a { color: #ffeb3b; text-decoration: none; display: inline-block; margin-top: 5px; }
+        .contact-item a:hover { color: #fff; }
+
+        footer {
+            margin-top: 40px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="athrv.png" alt="Atharva Kantode" class="profile-img">
+            <h1>Atharva Niranjan Kantode</h1>
+            <p>Backend Developer & Proficient in Full Stack Solutions</p>
+        </header>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a dedicated Full Stack Developer with a strong specialization in backend development using Flask, Django, and FastAPI. I build robust, scalable APIs and server-side systems, complemented by front-end development skills in HTML, CSS, JavaScript, and modern frameworks. My full stack capabilities enable me to design complete, end-to-end solutions — from intuitive user interfaces to efficient backend architectures. I am driven by a passion for crafting clean, maintainable code and continuously learning new technologies to solve real-world problems.
+
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill">C</div>
+                <div class="skill">Python</div>
+                <div class="skill">Java</div>
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>AI Chatbot</h3>
+                <p>Developed a chatbot leveraging AI technologies to provide automated responses and improve user interaction.</p>
+            </div>
+            <div class="project">
+                <h3>Real-time Chat Application</h3>
+                <p>Built a live chat application using WebSockets (Socket.io) for real-time communication.</p>
+            </div>
+            <div class="project">
+                <h3>Rock Paper Scissor Game</h3>
+                <p>Created using Spring Boot and Java.</p>
+            </div>
+            <div class="project">
+                <h3>To-Do Web Application</h3>
+                <p>Developed using Flask and deployed through Render.</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>SSC: Royal Public School - Secondary Education</li>
+                <li>HSC: Vishwamegh Mahavidyalaya - Science</li>
+                <li>B.Tech: KDK College of Engineering - Computer Science and Engineering</li>
+            </ul>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <li>Google Cyber Security Certification</li>
+                <li>AWS Cloud Certification</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <div class="contact-item"><strong>Phone:</strong><br> +91-7558665247</div>
+                <div class="contact-item"><strong>Email:</strong><br> <a href="mailto:atharvakantode16@gmail.com">atharvakantode16@gmail.com</a></div>
+                <div class="contact-item"><strong>LinkedIn:</strong><br> <a href="https://www.linkedin.com/in/atharvakantode" target="_blank">linkedin.com/in/atharvakantode</a></div>
+                <div class="contact-item"><strong>GitHub:</strong><br> <a href="https://github.com/Athrv16" target="_blank">github.com/Athrv16</a></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Atharva Kantode</p>
+        </footer>
+    </div>
+</body>
+
+</html>
