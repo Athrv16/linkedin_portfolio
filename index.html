@@ -5,150 +5,380 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atharva Kantode | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #0b1117;
+            --bg-2: #0f1c24;
+            --panel: rgba(255, 255, 255, 0.06);
+            --panel-strong: rgba(255, 255, 255, 0.12);
+            --text: #e8eef4;
+            --muted: #a8b4c2;
+            --accent: #5ef2c6;
+            --accent-2: #7aa2ff;
+            --border: rgba(255, 255, 255, 0.14);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Manrope', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #008080, #000000);
-            color: #fff;
-            transition: all 0.5s ease;
+            background: radial-gradient(1200px 600px at 10% -10%, #153240 0%, rgba(21, 50, 64, 0) 60%),
+                        radial-gradient(1000px 700px at 90% 10%, #1c2433 0%, rgba(28, 36, 51, 0) 55%),
+                        linear-gradient(160deg, var(--bg), var(--bg-2));
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 3px 3px;
+            opacity: 0.12;
+            pointer-events: none;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1120px;
             margin: auto;
-            padding: 30px;
-            text-align: center;
+            padding: 28px 20px 60px;
         }
 
-        header {
-            padding: 40px 20px;
-            animation: fadeInDown 1s ease-out;
+        header.hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 32px;
+            align-items: center;
+            margin-top: 18px;
+            margin-bottom: 40px;
+        }
+
+        .hero-text {
+            display: grid;
+            gap: 18px;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 130px;
+            height: 130px;
+            border-radius: 26px;
             object-fit: cover;
-            border: 3px solid #fff;
-            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
         }
 
         header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            letter-spacing: -0.02em;
         }
 
         header p {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1.2rem;
-            color: #ddd;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
-        nav {
-            margin: 30px 0;
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        nav a {
-            margin: 0 12px;
-            color: #ffeb3b;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+        .pill {
+            background: rgba(94, 242, 198, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(94, 242, 198, 0.35);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
-        nav a:hover {
-            color: #fff;
+        .hero-card {
+            background: linear-gradient(140deg, rgba(122, 162, 255, 0.12), rgba(255, 255, 255, 0.04));
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            display: grid;
+            gap: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card h3 {
+            font-size: 1rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+
+        .hero-card .stat {
+            display: grid;
+            gap: 4px;
+        }
+
+        .hero-card .stat strong {
+            font-size: 1.05rem;
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 0.95rem;
         }
 
         section {
-            margin-bottom: 50px;
-            text-align: left;
-            animation: fadeInUp 1s ease-in;
+            margin-bottom: 36px;
         }
 
         h2 {
-            border-bottom: 2px solid #ffeb3b;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::after {
+            content: "";
+            width: 56px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
             display: inline-block;
-            margin-bottom: 20px;
+        }
+
+        .section-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .cta {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .cta h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .cta p {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .btn-primary,
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #0b1117;
+            box-shadow: 0 12px 30px rgba(94, 242, 198, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(122, 162, 255, 0.25);
+        }
+
+        .btn-ghost {
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
         }
 
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
         }
 
         .skill {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 12px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            transition: transform 0.3s, background-color 0.3s;
-            cursor: pointer;
+            background: var(--panel-strong);
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
 
         .skill:hover {
-            transform: scale(1.05);
-            background-color: rgba(255, 235, 59, 0.2);
+            transform: translateY(-3px);
+            background-color: rgba(122, 162, 255, 0.12);
         }
 
-        li, .project {
-            background: rgba(255, 255, 255, 0.15);
-            margin: 10px 0;
-            padding: 12px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        .project {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            margin: 12px 0;
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        .project h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .project p {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        li {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 12px 14px;
+            border-radius: 12px;
+            color: var(--muted);
         }
 
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+            gap: 16px;
+        }
+
+        .contact-item {
+            background: var(--panel);
+            padding: 16px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
             text-align: center;
         }
-        .contact-item { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 8px; transition: transform 0.3s; }
-        .contact-item:hover { transform: scale(1.05); }
-        .contact-item a { color: #ffeb3b; text-decoration: none; display: inline-block; margin-top: 5px; }
-        .contact-item a:hover { color: #fff; }
+
+        .contact-item a {
+            color: var(--accent-2);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 6px;
+        }
 
         footer {
-            margin-top: 40px;
-            background: rgba(0,0,0,0.3);
-            padding: 20px;
+            margin-top: 24px;
+            color: var(--muted);
+            text-align: center;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @media (max-width: 900px) {
+            header.hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                order: 2;
+            }
+
+            .cta {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-actions {
+                justify-content: flex-start;
+            }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @media (max-width: 600px) {
+            .profile-img {
+                width: 110px;
+                height: 110px;
+            }
+
+            .container {
+                padding: 20px 16px 50px;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <header>
-            <img src="athrv.png" alt="Atharva Kantode" class="profile-img">
-            <h1>Atharva Niranjan Kantode</h1>
-            <p>Backend Developer & Proficient in Full Stack Solutions</p>
+        <header class="hero">
+            <div class="hero-text">
+                <img src="athrv.jpeg" alt="Atharva Kantode" class="profile-img">
+                <div>
+                    <h1>Atharva Kantode</h1>
+                    <p>Full Stack Developer | Django REST Framework | React.js | Python & Java</p>
+                </div>
+                <div class="pill-row">
+                    <span class="pill">Django</span>
+                    <span class="pill">DRF</span>
+                    <span class="pill">React.js</span>
+                    <span class="pill">MongoDB</span>
+                    <span class="pill">AWS</span>
+                </div>
+            </div>
+            <div class="hero-card">
+                <h3>Quick Profile</h3>
+                <div class="stat">
+                    <strong>Nagpur, India</strong>
+                    <span class="muted">Open to Full Stack roles</span>
+                </div>
+                <div class="stat">
+                    <strong>Trainee Software Developer</strong>
+                    <span class="muted">Tinyworks Infotech (Jan 2026 – Present)</span>
+                </div>
+                <div class="stat">
+                    <strong>atharvakantode16@gmail.com</strong>
+                    <span class="muted">Let’s build scalable products</span>
+                </div>
+            </div>
         </header>
+
+        <section id="cta">
+            <div class="section-card cta">
+                <div>
+                    <h3>Let’s build something scalable together.</h3>
+                    <p>Download my resume for a quick view of experience, tech stack, and recent projects. I’m open to full-stack opportunities and collaborative engineering teams.</p>
+                </div>
+                <div class="cta-actions">
+                    <a class="btn-primary" href="Atharva%20Kantode%20Reume.pdf" target="_blank" rel="noopener">Download Resume</a>
+                </div>
+            </div>
+        </section>
 
         <!-- <nav>
             <a href="#about">About</a>
@@ -161,71 +391,90 @@
 
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a dedicated Full Stack Developer with a strong specialization in backend development using Flask, Django, and FastAPI. I build robust, scalable APIs and server-side systems, complemented by front-end development skills in HTML, CSS, JavaScript, and modern frameworks. My full stack capabilities enable me to design complete, end-to-end solutions — from intuitive user interfaces to efficient backend architectures. I am driven by a passion for crafting clean, maintainable code and continuously learning new technologies to solve real-world problems.
-
-            </p>
+            <div class="section-card">
+                <p>Motivated Full Stack Developer with strong backend expertise in Python, Django, and Django REST Framework (DRF) for building robust RESTful APIs. Experienced in developing scalable web applications with React.js on the frontend and database-driven backends using MongoDB and MySQL. Skilled in Java and Spring Boot for enterprise-grade backend services. Eager to contribute to dynamic engineering teams and grow within the software development industry.</p>
+            </div>
         </section>
 
         <section id="skills">
             <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill">C</div>
+            <div class="skills-container section-card">
                 <div class="skill">Python</div>
                 <div class="skill">Java</div>
-                <div class="skill">HTML</div>
-                <div class="skill">CSS</div>
+                <div class="skill">Django</div>
+                <div class="skill">Django REST Framework</div>
+                <div class="skill">Flask</div>
+                <div class="skill">FastAPI</div>
+                <div class="skill">Spring Boot</div>
+                <div class="skill">React.js</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">HTML5</div>
+                <div class="skill">CSS3</div>
+                <div class="skill">MongoDB</div>
+                <div class="skill">MySQL</div>
+                <div class="skill">Git</div>
+                <div class="skill">GitHub</div>
+                <div class="skill">AWS</div>
+                <div class="skill">Google Cybersecurity</div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="project">
+                <h3>Trainee Software Developer | Tinyworks Infotech</h3>
+                <p>Jan 2026 – Present</p>
+                <p>Working on backend development using Django and Django REST Framework (DRF) to build and maintain RESTful APIs. Contributing to frontend development using React.js, building responsive UI components integrated with DRF APIs.</p>
+            </div>
+            <div class="project">
+                <h3>Data Science Intern | Unified Mentors</h3>
+                <p>Jun 2025 – Aug 2025</p>
+                <p>Performed data cleaning and preprocessing with Pandas and NumPy; processed and standardized 30,000+ records. Built basic ML pipelines with Scikit-learn and presented insights using Matplotlib visualizations.</p>
             </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
             <div class="project">
-                <h3>AI Chatbot</h3>
-                <p>Developed a chatbot leveraging AI technologies to provide automated responses and improve user interaction.</p>
+                <h3>FinanSmartz — AI Finance Tracker & Advisor</h3>
+                <p>React.js, Next.js, Django, Django REST Framework, Python</p>
+                <p>Built an AI-powered personal finance platform unifying spending tracking, budget planning, and investment insights into a real-time command center. Developed a Smart Receipt Scanner and automated insights engine. Implemented multi-account and multi-currency support with real-time conversion. Deployed on Vercel with 99.9% uptime, tracking 2B+ transactions and serving 50K+ active users.</p>
             </div>
             <div class="project">
-                <h3>Real-time Chat Application</h3>
-                <p>Built a live chat application using WebSockets (Socket.io) for real-time communication.</p>
-            </div>
-            <div class="project">
-                <h3>Rock Paper Scissor Game</h3>
-                <p>Created using Spring Boot and Java.</p>
-            </div>
-            <div class="project">
-                <h3>To-Do Web Application</h3>
-                <p>Developed using Flask and deployed through Render.</p>
+                <h3>Daily Flow — To-Do Web Application</h3>
+                <p>Python, Flask, MongoDB Atlas, HTML, CSS, JavaScript</p>
+                <p>Developed a full-stack to-do web application with Flask for backend routing and real-time task management. Designed CRUD operations with MongoDB Atlas and built a responsive frontend for a smooth cross-device experience.</p>
             </div>
         </section>
 
         <section id="education">
             <h2>Education</h2>
-            <ul>
-                <li>SSC: Royal Public School - Secondary Education</li>
-                <li>HSC: Vishwamegh Mahavidyalaya - Science</li>
-                <li>B.Tech: KDK College of Engineering - Computer Science and Engineering</li>
+            <ul class="section-card">
+                <li>B.Tech in Computer Science & Engineering, KDK College of Engineering, Nagpur (2022 – 2026)</li>
             </ul>
         </section>
 
         <section id="certifications">
             <h2>Certifications</h2>
-            <ul>
-                <li>Google Cyber Security Certification</li>
-                <li>AWS Cloud Certification</li>
+            <ul class="section-card">
+                <li>Google Cybersecurity Certificate — Google / Coursera</li>
+                <li>AWS Cloud Foundations Certification — Amazon Web Services</li>
             </ul>
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
-            <div class="contact-info">
-                <div class="contact-item"><strong>Phone:</strong><br> +91-7558665247</div>
+            <div class="contact-info section-card">
+                <div class="contact-item"><strong>Phone:</strong><br> +91 75586 65247</div>
                 <div class="contact-item"><strong>Email:</strong><br> <a href="mailto:atharvakantode16@gmail.com">atharvakantode16@gmail.com</a></div>
-                <div class="contact-item"><strong>LinkedIn:</strong><br> <a href="https://www.linkedin.com/in/atharvakantode" target="_blank">linkedin.com/in/atharvakantode</a></div>
+                <div class="contact-item"><strong>LinkedIn:</strong><br> <a href="https://www.linkedin.com/in/atharva-kantode" target="_blank">linkedin.com/in/atharva-kantode</a></div>
+                <div class="contact-item"><strong>Location:</strong><br> Nagpur, Maharashtra, India</div>
                 <div class="contact-item"><strong>GitHub:</strong><br> <a href="https://github.com/Athrv16" target="_blank">github.com/Athrv16</a></div>
             </div>
         </section>
 
         <footer>
-            <p>© 2025 Atharva Kantode</p>
+            <p>© 2026 Atharva Kantode</p>
         </footer>
     </div>
 </body>
